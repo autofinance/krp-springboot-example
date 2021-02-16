@@ -37,7 +37,7 @@ public class EventController {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @ApiOperation(value = "Send an event", notes = "Send an event", tags = {"Events"})
+    @ApiOperation(value = "Send an event", notes = "Send an event" )
     @PostMapping(value = "/event", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @ResponseBody
