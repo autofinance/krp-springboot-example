@@ -1,4 +1,4 @@
-# Kafka ReST Proxy Clients (Example)
+# Kafka REST Proxy Clients (Example)
 
 This project provides an example producer and consumer for [Kafka REST Proxy](https://docs.confluent.io/platform/current/kafka-rest/index.html) 
 and implemented in [Springboot](https://spring.io/projects/spring-boot).
