@@ -142,6 +142,8 @@ $ mvn spring-boot:run
 ```
 - Click on the blue `Execute` button.
 
+![swagger-ui](./doc/image/swagger-ui.png)
+
 ### Verify w/Consumer 
 Verify that the message was received by switching to the console/terminal running the `Consumer`.
 You should see something similar to the following:
