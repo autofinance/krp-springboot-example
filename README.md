@@ -1,3 +1,16 @@
+Table of Contents
+=================
+
+  * [Introduction](#kafka-rest-proxy-clients-example)
+  * [Requirements](#requirements)
+  * [Instructions](#instructions)
+     * [Clone the repository](#clone-the-repository)
+     * [Start the Kafka and REST Proxy](#start-the-kafka-and-rest-proxy)
+     * [Start the Producer](#start-the-producer)
+     * [Start the Consumer](#start-the-consumer)
+     * [Send a Test Message](#send-a-test-message)
+     * [Verify w/Consumer](#verify-wconsumer)
+
 # Kafka REST Proxy Clients (Example)
 
 This project provides an example producer and consumer for [Kafka REST Proxy](https://docs.confluent.io/platform/current/kafka-rest/index.html) 
@@ -12,14 +25,15 @@ You will need:
 - [Docker](https://www.docker.com/products/docker-desktop)
 - a clone of _this_ repository
 
-## Clone the repository
+## Instructions
+### Clone the repository
  
 ```bash
 $ git clone https://github.com/autofinance/krp-springboot-example.git krp
 $ cd krp
 ```
 
-## Start the Kafka and REST Proxy
+### Start the Kafka and REST Proxy
 
 ```
 $ docker-compose up -d
@@ -33,7 +47,7 @@ Creating krp_kafka-ui_1           ... done
 
 ```
 
-## Start the Producer
+### Start the Producer
 
 ```
 $ cd producer
@@ -69,7 +83,7 @@ $ mvn spring-boot:run
 ```
 The `Producer` has a [SwaggerUI](https://swagger.io) could be reached at `http://localhost:8080/swagger-ui/`.
 
-## Start the Consumer
+### Start the Consumer
 Open another terminal and navigate to the cloned repository.
 ```bash
 
@@ -112,7 +126,7 @@ $ mvn spring-boot:run
 
 ```
 
-## Send a Test Message
+### Send a Test Message
 
 - Open a browser and point it to `http://localhost:8080/swagger-ui/` (`Producer`).
 - Locate the `event-controller`
@@ -128,7 +142,7 @@ $ mvn spring-boot:run
 ```
 - Click on the blue `Execute` button.
 
-## Verify w/Consumer 
+### Verify w/Consumer 
 Verify that the message was received by switching to the console/terminal running the `Consumer`.
 You should see something similar to the following:
 
