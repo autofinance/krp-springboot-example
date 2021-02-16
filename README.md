@@ -54,7 +54,7 @@ $ mvn spring-boot:run
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.4.2)
 
-2021-02-16 06:52:02.833  INFO 3940101 --- [           main] a.e.r.producer.ProducerApplication       : Starting ProducerApplication using Java 14.0.1 on banshee with PID 3940101 (/home/bashar/dev/tfs/spikes/kafka-rest-proxy-demo/producer/target/classes started by bashar in /home/bashar/dev/tfs/spikes/kafka-rest-proxy-demo/producer)
+2021-02-16 06:52:02.833  INFO 3940101 --- [           main] a.e.r.producer.ProducerApplication       : Starting ProducerApplication using Java 14.0.1 on banshee with PID 3940101 (/home/bashar/dev/autofin/spikes/kafka-rest-proxy-demo/producer/target/classes started by bashar in /home/bashar/dev/autofin/spikes/kafka-rest-proxy-demo/producer)
 2021-02-16 06:52:02.835  INFO 3940101 --- [           main] a.e.r.producer.ProducerApplication       : No active profile set, falling back to default profiles: default
 2021-02-16 06:52:03.777  INFO 3940101 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2021-02-16 06:52:03.785  INFO 3940101 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
@@ -92,7 +92,7 @@ $ mvn spring-boot:run
 =========|_|==============|___/=/_/_/_/
 :: Spring Boot ::                (v2.4.2)
 
-2021-02-16 06:58:58.453  INFO 3941429 --- [           main] a.e.r.consumer.ConsumerApplication       : Starting ConsumerApplication using Java 14.0.1 on banshee with PID 3941429 (/home/bashar/dev/tfs/spikes/kafka-rest-proxy-demo/consumer/target/classes started by bashar in /home/bashar/dev/tfs/spikes/kafka-rest-proxy-demo/consumer)
+2021-02-16 06:58:58.453  INFO 3941429 --- [           main] a.e.r.consumer.ConsumerApplication       : Starting ConsumerApplication using Java 14.0.1 on banshee with PID 3941429 (/home/bashar/dev/autofin/spikes/kafka-rest-proxy-demo/consumer/target/classes started by bashar in /home/bashar/dev/autofin/spikes/kafka-rest-proxy-demo/consumer)
 2021-02-16 06:58:58.455  INFO 3941429 --- [           main] a.e.r.consumer.ConsumerApplication       : No active profile set, falling back to default profiles: default
 2021-02-16 06:58:59.063  INFO 3941429 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
 2021-02-16 06:58:59.069  INFO 3941429 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
