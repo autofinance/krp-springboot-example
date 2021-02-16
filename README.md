@@ -3,6 +3,8 @@
 This project provides an example producer and consumer for [Kafka REST Proxy](https://docs.confluent.io/platform/current/kafka-rest/index.html) 
 and implemented in [Springboot](https://spring.io/projects/spring-boot).
 
+![conceptual model](./doc/image/conceptual-model.png)
+
 ## Requirements
 You will need:
 - [JDK 14+](https://adoptopenjdk.net/) 
