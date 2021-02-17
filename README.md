@@ -1,15 +1,17 @@
 Table of Contents
 =================
 
-  * [Introduction](#kafka-rest-proxy-clients-example)
-  * [Requirements](#requirements)
-  * [Instructions](#instructions)
-     * [Clone the repository](#clone-the-repository)
-     * [Start the Kafka and REST Proxy](#start-the-kafka-and-rest-proxy)
-     * [Start the Producer](#start-the-producer)
-     * [Start the Consumer](#start-the-consumer)
-     * [Send a Test Message](#send-a-test-message)
-     * [Verify w/Consumer](#verify-wconsumer)
+* [Introduction](#kafka-rest-proxy-clients-example)
+* [Requirements](#requirements)
+* [Instructions](#instructions)
+    * [Clone the repository](#clone-the-repository)
+    * [Start the Kafka and REST Proxy](#start-the-kafka-and-rest-proxy)
+    * [Start the Producer](#start-the-producer)
+    * [Start the Consumer](#start-the-consumer)
+    * [Send a Test Message](#send-a-test-message)
+    * [Verify w/Consumer](#verify-wconsumer)
+* [Troubleshooting](#troubleshooting)
+    * [Docker Desktop on Windows](#docker-desktop-on-windows)
 
 # Kafka REST Proxy Clients (Example)
 
@@ -153,3 +155,16 @@ You should see something similar to the following:
 2021-02-16 07:06:51.402  INFO 3941429 --- [   scheduling-1] a.eda.restproxy.consumer.EventListener   : Got event: Event(id=b328c374-0f37-45f7-a8bc-9eb3248fb9cf, created=2021-02-16T07:06:46, name=My First Event, description=Hello, Kafka REST Proxy!, sentBy=potat)
 2021-02-16 07:06:56.402  INFO 3941429 --- [   scheduling-1] a.eda.restproxy.consumer.EventListener   : Listening for events from events
 ```
+## Troubleshooting
+
+### Docker Desktop on Windows
+Due to limited networking capability on Windows, you might need to change the value for `KAFKA_ADVERTISED_HOST_NAME`.  Change it from a hard IP address to the hostname `kafka`.
+![kakfa advertised hostname](./doc/image/kafka-advertise-as.PNG)
+
+Next, you need to update your `hosts` file to and add the following entry:
+```
+127.0.0.1 kafka
+```
+You can find your hosts file here:
+
+![hosts file](./doc/image/hosts-file.PNG)
