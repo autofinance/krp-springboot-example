@@ -1,17 +1,30 @@
+
 Table of Contents
 =================
 
-* [Introduction](#kafka-rest-proxy-clients-example)
-* [Requirements](#requirements)
-* [Instructions](#instructions)
-    * [Clone the repository](#clone-the-repository)
-    * [Start the Kafka and REST Proxy](#start-the-kafka-and-rest-proxy)
-    * [Start the Producer](#start-the-producer)
-    * [Start the Consumer](#start-the-consumer)
-    * [Send a Test Message](#send-a-test-message)
-    * [Verify w/Consumer](#verify-wconsumer)
-* [Troubleshooting](#troubleshooting)
-    * [Docker Desktop on Windows](#docker-desktop-on-windows)
+   * [Change History](#change-history)
+   * [Intoduction](#kafka-rest-proxy-clients-example)
+   * [Requirements](#requirements)
+   * [Instructions](#instructions)
+     * [Clone the repository](#clone-the-repository)
+     * [Start the Kafka and REST Proxy](#start-the-kafka-and-rest-proxy)
+        * [Running on non-Win/MacOS](#running-on-non-winmacos)
+        * [Running on Win/MacOS](#running-on-winmacos)
+     * [Start the Producer](#start-the-producer)
+     * [Start the Consumer](#start-the-consumer)
+     * [Send a Test Message](#send-a-test-message)
+     * [Verify w/Consumer](#verify-wconsumer)
+   * [Troubleshooting](#troubleshooting)
+     * [Docker Desktop on Windows &amp; MacOS](#docker-desktop-on-windows--macos)
+        * [Windows](#windows)
+        * [MacOS](#macos)
+
+# Change History
+| Date | Change | Comments | By |
+|:---|:---|:---|:---|
+| 02-16-2021 | initial | Initial release | primogen |
+| 02-17-2021 | updated README | Updated instructions for win/mac users | primogen |
+ 
 
 # Kafka REST Proxy Clients (Example)
 
@@ -37,8 +50,30 @@ $ cd krp
 
 ### Start the Kafka and REST Proxy
 
+__IMPORTANT:__ If you are on Windows or MacOS, follow the [instructions here](#docker-desktop-on-windows--macos) before running the instructions below.
+
+#### Running on non-Win/MacOS
+
+To run the Kafka cluster:
+
 ```
 $ docker-compose up -d
+Creating network "krp_localnet" with the default driver
+Creating krp_zookeeper_1 ... done
+Creating krp_kafka_1     ... done
+Creating krp_schema-registry_1 ... done
+Creating krp_kafka-rest_1         ... done
+Creating krp_schema-registry-ui_1 ... done
+Creating krp_kafka-ui_1           ... done
+
+```
+
+#### Running on Win/MacOS
+
+Assuming you followed the [instructions here](#docker-desktop-on-windows--macos), run the Kafka cluster by:
+ 
+```
+$ KAFKA_HOST=kafka docker-compose up -d
 Creating network "krp_localnet" with the default driver
 Creating krp_zookeeper_1 ... done
 Creating krp_kafka_1     ... done
@@ -157,14 +192,18 @@ You should see something similar to the following:
 ```
 ## Troubleshooting
 
-### Docker Desktop on Windows
-Due to limited networking capability on Windows, you might need to change the value for `KAFKA_ADVERTISED_HOST_NAME`.  Change it from a hard IP address to the hostname `kafka`.
-![kakfa advertised hostname](./doc/image/kafka-advertise-as.PNG)
-
-Next, you need to update your `hosts` file to and add the following entry:
+### Docker Desktop on Windows & MacOS
+Due to limited networking capability on Windows and MacOS you need to update your `hosts` file and add the following entry:
 ```
 127.0.0.1 kafka
 ```
-You can find your hosts file here:
+
+#### Windows
+On Windows, you can find your hosts file here:
 
 ![hosts file](./doc/image/hosts-file.PNG)
+
+#### MacOS
+On MacOS, your hosts file resides in `/etc/hosts`:
+- Open a terminal 
+- `sudo vi /etc/hosts` to edit the file.
