@@ -25,8 +25,7 @@ import java.util.Map;
 public class EventListener {
     @Value("${kafka.rest.proxy}")
     private String kafkaRestProxyUrl;
-    //@Value("${listener.consumer.id}")
-    @Value("#{T(java.util.UUID).randomUUID()}")
+    @Value("${listener.consumer.id}")
     private String consumerId;
     @Value("${listener.consumer.group.id}")
     private String consumerGroupId;
