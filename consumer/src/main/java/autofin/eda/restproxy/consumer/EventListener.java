@@ -3,6 +3,7 @@ package autofin.eda.restproxy.consumer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -24,7 +25,8 @@ import java.util.Map;
 public class EventListener {
     @Value("${kafka.rest.proxy}")
     private String kafkaRestProxyUrl;
-    @Value("${listener.consumer.id}")
+    //@Value("${listener.consumer.id}")
+    @Value("#{T(java.util.UUID).randomUUID()}")
     private String consumerId;
     @Value("${listener.consumer.group.id}")
     private String consumerGroupId;
@@ -87,7 +89,12 @@ public class EventListener {
         logger.info(createConsumerRes.getBody().toString());
 
         final String baseUri = createConsumerRes.getBody().get("base_uri");
-        assert baseUri != null;
+        assert baseUri != null && !baseUri.isEmpty();
+        /**
+         * For simplicity, we discard the response above; but for realworld applications, the baseUri returned, above,
+         * is what you would use for further communications with the KRP.
+         * (we just happen to know how to construct the effective URLs in this example.
+         */
     }
 
     /**
@@ -96,7 +103,7 @@ public class EventListener {
     private void subscribe() {
         logger.info("Subscribing to " + topicName);
         final Map<String, Object> subscribeParams = Map.<String, Object>of(
-                "topics", new String[]{topicName}
+                "topics", StringUtils.split(topicName,",")
         );
         final HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.ALL));
@@ -125,8 +132,9 @@ public class EventListener {
      */
     @Scheduled(fixedDelay = 5000)
     public void listener() throws JsonProcessingException {
-        logger.info("Listening for events from " + topicName);
-
+        if((((System.currentTimeMillis() / 1000L) / 60L) % 5) == 0L) {
+            logger.info("Listening for events from " + topicName);
+        }
         final HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(kafkaJsonV2Json));
         HttpEntity<Map<String, Object>> request = new HttpEntity<Map<String, Object>>(headers);
@@ -145,7 +153,12 @@ public class EventListener {
         }
         // ..now dispatch the events to the actual handler.
         events.forEach(e -> {
-            consume(objectMapper.convertValue(e.get("value"), Event.class));
+            // consume(objectMapper.convertValue(e.get("value"), Event.class));
+            try {
+                logger.info(e.get("topic") + "\n" + objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(e.get("value")));
+            } catch (JsonProcessingException ex) {
+                logger.error("Problems reading " + e.get("value").toString(), ex);
+            }
         });
     }
 
