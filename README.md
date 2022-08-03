@@ -36,7 +36,7 @@ and implemented in [Springboot](https://spring.io/projects/spring-boot).
 
 ## Requirements
 You will need:
-- [JDK 14+](https://adoptopenjdk.net/) 
+- [JDK 18+](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html) 
 - [Maven](https://maven.apache.org/download.cgi)
 - [Docker](https://www.docker.com/products/docker-desktop)
 - a clone of _this_ repository
