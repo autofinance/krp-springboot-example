@@ -14,7 +14,7 @@
 	<name>producer</name>
 	<description>Example Kafka ReST Proxy Producer</description>
 	<properties>
-		<java.version>14</java.version>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,11 +66,10 @@
 			<version>7.0.1.Final</version>
 		</dependency>
 		<!-- ..end validation -->
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.24</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
