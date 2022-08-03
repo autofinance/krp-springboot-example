@@ -129,7 +129,7 @@ public class EventListener {
      * Listen on the topic.
      * @throws JsonProcessingException
      */
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelayString = "${listener.consumer.idle-between-poll.ms}")
     public void listener() throws JsonProcessingException {
         if((((System.currentTimeMillis() / 1000L) / 60L) % 5) == 0L) {
             logger.info("Listening for events from " + topicName);
