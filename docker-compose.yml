@@ -23,22 +23,6 @@ services:
     networks:
       localnet:
         ipv4_address: 192.168.169.70
-  schema-registry-ui:
-    image: landoop/schema-registry-ui
-    ports:
-      - "8000:8000"
-    depends_on:
-      - schema-registry
-    environment:
-      - SCHEMAREGISTRY_URL=http://schema-registry:8081
-      - ALLOW_GLOBAL=1
-      - ALLOW_TRANSITIVE=1
-      - ALLOW_DELETION=1
-      - READONLY_MODE=0
-      - PROXY=true
-    networks:
-      localnet:
-        ipv4_address: 192.168.169.60
   schema-registry:
     image: confluentinc/cp-schema-registry:4.1.1
     hostname: schema-registry
