@@ -20,10 +20,11 @@ Table of Contents
         * [MacOS](#macos)
 
 # Change History
-| Date | Change | Comments | By |
-|:---|:---|:---|:---|
-| 02-16-2021 | initial | Initial release | primogen |
-| 02-17-2021 | updated README | Updated instructions for win/mac users | primogen |
+| Date       | Change               | Comments                                | By |
+|:-----------|:---------------------|:----------------------------------------|:---|
+| 02-16-2021 | initial              | Initial release                         | primogen |
+| 02-17-2021 | updated README       | Updated instructions for win/mac users  | primogen |
+| 08-03-2022 | refresh | dependencies refresh; some refactorings | primogen |
  
 
 # Kafka REST Proxy Clients (Example)
